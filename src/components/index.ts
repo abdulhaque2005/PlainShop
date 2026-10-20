@@ -10,3 +10,4 @@ export * from "./quick-path-simulation";
 export * from "./taxonomy-card";
 export * from "./taxonomy-grid";
 export * from "./route-anatomy-reference";
+export * from "./product-catalog";

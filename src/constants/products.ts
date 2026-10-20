@@ -18,7 +18,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p2",
     sku: "#002",
-    tagCode: "FER-02",
+    tagCode: "PER-02",
     tagIcon: "keyboard",
     title: "Mechanical Keyboard",
     brand: "Keychronix",

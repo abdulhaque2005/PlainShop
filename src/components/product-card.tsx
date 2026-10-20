@@ -6,10 +6,11 @@ import {
   Lightbulb,
   Coffee,
   ShoppingBag,
+  Sparkles,
   Laptop,
   BookOpen,
-  ArrowRight,
   Tag,
+  ArrowRight,
 } from "lucide-react";
 import { Product, ProductTagIcon } from "@/types";
 
@@ -18,7 +19,7 @@ interface ProductCardProps {
 }
 
 function ProductTagBadgeIcon({ icon }: { icon: ProductTagIcon }) {
-  const className = "w-3 h-3 text-gray-600";
+  const className = "w-3 h-3 text-gray-700";
 
   switch (icon) {
     case "headphones":
@@ -31,11 +32,12 @@ function ProductTagBadgeIcon({ icon }: { icon: ProductTagIcon }) {
       return <Coffee className={className} />;
     case "bag":
       return <ShoppingBag className={className} />;
+    case "beanie":
+      return <Sparkles className={className} />;
     case "stand":
       return <Laptop className={className} />;
     case "notebook":
       return <BookOpen className={className} />;
-    case "beanie":
     default:
       return <Tag className={className} />;
   }
@@ -53,6 +55,7 @@ export function ProductCard({ product }: ProductCardProps) {
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
 
+        {/* Tag badge matching reference image */}
         <div className="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/90 backdrop-blur-xs border border-gray-200/80 shadow-2xs">
           <ProductTagBadgeIcon icon={product.tagIcon} />
           <span className="text-[11px] font-mono font-medium text-gray-700">

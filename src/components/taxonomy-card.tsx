@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Cpu, Lamp, Shirt, Briefcase, Package, ArrowRight } from "lucide-react";
+import { Cpu, Lamp, Shirt, Briefcase, ArrowRight } from "lucide-react";
 import { TaxonomyCategory } from "@/types";
 
 interface TaxonomyCardProps {
@@ -7,7 +7,7 @@ interface TaxonomyCardProps {
 }
 
 function TaxonomyIcon({ icon }: { icon: TaxonomyCategory["icon"] }) {
-  const className = "w-4 h-4 text-gray-700";
+  const className = "w-4 h-4 text-gray-800";
 
   switch (icon) {
     case "cpu":
@@ -19,7 +19,7 @@ function TaxonomyIcon({ icon }: { icon: TaxonomyCategory["icon"] }) {
     case "briefcase":
       return <Briefcase className={className} />;
     default:
-      return <Package className={className} />;
+      return <Cpu className={className} />;
   }
 }
 
@@ -35,9 +35,8 @@ export function TaxonomyCard({ category }: TaxonomyCardProps) {
             </h3>
           </div>
 
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded border border-gray-200 text-xs text-gray-500 bg-white">
-            <Package className="w-3 h-3 text-gray-400" />
-            <span>{category.itemCount} Items</span>
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded border border-gray-200 text-xs text-gray-500 bg-white">
+            {category.itemCount} items
           </span>
         </div>
 
@@ -64,16 +63,16 @@ export function TaxonomyCard({ category }: TaxonomyCardProps) {
       </div>
 
       <div className="mt-6 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
-        <span className="font-mono text-gray-400">
-          Slug: [&apos;{category.slug}&apos;]
+        <span className="text-xs text-gray-400 font-medium">
+          {category.subcategories.length} subcategories
         </span>
 
         <Link
           href={`/browse/${category.slug}`}
-          className="inline-flex items-center gap-1 font-mono text-blue-600 hover:text-blue-700 transition-colors"
+          className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors"
         >
-          <span>/browse/{category.slug}</span>
-          <ArrowRight className="w-3 h-3" />
+          <span>Browse {category.name}</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
     </article>
